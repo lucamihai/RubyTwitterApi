@@ -11,10 +11,11 @@ module Mutations
     def resolve(attributes:)
       content = attributes.arguments.keyword_arguments[:content]
       tweet_handler = TweetHandler.new
-      tweet_handler.add_tweet(content)
+      tweet = tweet_handler.add_tweet(content)
+      pp tweet.resources
 
       {
-        tweet: OpenStruct.new(id: 42),
+        tweet: tweet,
         errors: ["some error"]
       }
     end

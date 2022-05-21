@@ -32,5 +32,6 @@ class TweetHandler
       new_resource.save
     end
 
+    added_tweet
   end
 end
