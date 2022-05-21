@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_21_112151) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_21_130916) do
   create_table "resources", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -19,10 +19,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_21_112151) do
   end
 
   create_table "resources_tweets", id: false, force: :cascade do |t|
-    t.integer "tweets_id"
-    t.integer "resources_id"
-    t.index ["resources_id"], name: "index_resources_tweets_on_resources_id"
-    t.index ["tweets_id"], name: "index_resources_tweets_on_tweets_id"
+    t.integer "tweet_id"
+    t.integer "resource_id"
+    t.index ["resource_id"], name: "index_resources_tweets_on_resource_id"
+    t.index ["tweet_id"], name: "index_resources_tweets_on_tweet_id"
   end
 
   create_table "tweets", force: :cascade do |t|
