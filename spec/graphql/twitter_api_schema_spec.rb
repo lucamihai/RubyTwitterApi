@@ -3,13 +3,24 @@ require "rails_helper"
 RSpec.describe TwitterApiSchema do
   it "does the test query" do
     query_string = <<-GRAPHQL
-      query {
-        testField
-    }
+      mutation($input: TweetCreateInput!) {
+        tweetCreate(input: $input) {
+          tweet {
+            id
+          }
+        }
+      }
     GRAPHQL
 
-    result = TwitterApiSchema.execute(query_string)
-
-    expect(result["data"]["testField"]).to eq "Hello World!"
+    variables = {
+      "input": {
+        "attributes": {
+          "content": "Best thing I found in a while: https://12ft.io/"
+        }
+      }
+    }
+    result = TwitterApiSchema.execute(query_string, variables: variables)
+    pp result
+    expect(result["data"]["tweetCreate"]).not_to be nil
   end  
 end
