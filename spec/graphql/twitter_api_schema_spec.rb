@@ -20,7 +20,6 @@ RSpec.describe TwitterApiSchema do
       }
     }
     result = TwitterApiSchema.execute(query_string, variables: variables)
-    pp result
     expect(result["data"]["tweetCreate"]).not_to be nil
   end  
 end
