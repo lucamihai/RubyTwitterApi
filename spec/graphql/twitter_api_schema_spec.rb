@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe TwitterApiSchema do
-  it "does the test query" do
+  it "adds tweet as expected" do
     query_string = <<-GRAPHQL
       mutation($input: TweetCreateInput!) {
         tweetCreate(input: $input) {
@@ -20,6 +20,7 @@ RSpec.describe TwitterApiSchema do
       }
     }
     result = TwitterApiSchema.execute(query_string, variables: variables)
+    
     expect(result["data"]["tweetCreate"]).not_to be nil
   end  
 end
