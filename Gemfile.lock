@@ -210,6 +210,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.2)
     strscan (3.0.3)
     thor (1.2.1)
     timeout (0.2.0)
@@ -233,6 +234,7 @@ DEPENDENCIES
   rails (~> 7.0.3)
   rspec
   rspec-rails
+  sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
